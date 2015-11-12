@@ -39,6 +39,6 @@ int partition(int arr[],int big,int end){
 void swap(int *a, int *b){
 	int temp;
 	temp = *a;
-  *a   = *b;
-  *b   = temp;
+  	*a   = *b;
+  	*b   = temp;
 }
