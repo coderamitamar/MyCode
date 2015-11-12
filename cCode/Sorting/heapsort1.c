@@ -42,7 +42,7 @@ int deleteroot(int heap[],int n){
 			else{
 				if(temp>heap[2*j]){
 					heap[j]=heap[2*j];
-     				j*=2;
+     					j*=2;
 					break;
 				}else
 					break;
