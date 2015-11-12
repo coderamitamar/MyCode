@@ -9,7 +9,7 @@ void main(){
 	int rawdata[n];
 	printf("Start entering the elements\n");
 	for(i=0;i<n;i++)
-	scanf("%d",&rawdata[i]);
+		scanf("%d",&rawdata[i]);
 	radixsort(rawdata,n);
 	printf("Sorted elements are:\n");
 	for(i=0;i<n;i++)
