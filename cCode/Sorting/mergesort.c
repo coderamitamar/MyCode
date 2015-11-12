@@ -10,11 +10,11 @@ void main()
 	int rawdata[n];
 	printf("Start entering the data:\n");
 	for(i=0;i<n;i++)
-	scanf("%d",&rawdata[i]);
+		scanf("%d",&rawdata[i]);
 	mergesort(rawdata,0,n-1);
 	printf("Sorted data are:\n");
 	for(i=0;i<n;i++)
-	printf("%d\t",rawdata[i]);
+		printf("%d\t",rawdata[i]);
 	getch();
 }
 void mergesort(int raw[],int low,int high)
