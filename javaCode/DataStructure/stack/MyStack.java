@@ -1,7 +1,6 @@
 package stack;
 
-public class MyStack
-{									//DATA SECTION STARTS HERE
+public class MyStack{							//DATA SECTION STARTS HERE
 	final int UNDERFLOW=-999999999;
 	int size;
 	private int top;
@@ -9,8 +8,7 @@ public class MyStack
 									//DATA SECTION ENDS HERE
 									
 									//CONSTRUCTOR SECTION STARTS HERE
-	public MyStack(int s)
-	{
+	public MyStack(int s){
 		size=s;
 		top=-1;
 		stck=new int[size];
@@ -19,30 +17,24 @@ public class MyStack
 
 									//METHOD SECTION STARTS HERE
 	//FUNCTION TO PUSH THE ELEMENT TO THE STACK
-	public void push(int item)
-	{
+	public void push(int item){
 		if(top>=size-1)
 			System.out.println("\t>>> Stack overflow!!!");
 		else
 			stck[++top]=item;
 	}
 	//FUNCTION TO POP THE TOP ELEMENT OF THE STACK
-	public int pop()
-	{
-		if(top<0)
-		{
+	public int pop(){
+		if(top<0){
 			System.out.println("\t>>> Stack underflow!!!");
 			return UNDERFLOW;
-		}
-		else
+		}else
 			return stck[top--];
 	}
 	//FUNCTION TO PRINT ALL THE ELEMENTS OF THE STACK
-	public void show()
-	{
+	public void show(){
 		int i;
-		if(top<0)
-		{
+		if(top<0){
 			System.out.println("Stack is empty!!!\n");
 			return;
 		}
@@ -51,6 +43,5 @@ public class MyStack
 			System.out.print(stck[i]+"\t");
 		System.out.println();
 	}
-									//METHOD SECTION ENDS HERE
+	//METHOD SECTION ENDS HERE
 }
-
