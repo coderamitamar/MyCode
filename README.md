@@ -1,3 +1,3 @@
 # myCCode
-C programs done by me.
-This repository is only made for storing c programs done by me
+All programs done by me.
+This repository is only made for storing all the data strucute and algorithm programs done by me
