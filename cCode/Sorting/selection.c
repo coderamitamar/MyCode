@@ -11,7 +11,7 @@ void main(){
 		scanf("%d",&rawdata[i]);
 	selectionsort(rawdata,n);
 	printf("Sorted elements are\n");
-    for(i=0;i<n;i++)
+    	for(i=0;i<n;i++)
 		printf("%d\t",rawdata[i]);
 	getch();
 }
