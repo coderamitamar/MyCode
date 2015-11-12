@@ -2,18 +2,15 @@ package tree;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class BST<E extends Comparable<E>,F>
-{
+public class BST<E extends Comparable<E>,F>{
 	//variables
 	private BstNode<E,F> root;
 	//Constructors
-	public BST()
-	{
+	public BST(){
 		root=null;
 	}
 	//methods
-	public BstNode<E,F> getRoot()
-	{
+	public BstNode<E,F> getRoot(){
 		return root;
 	}
 	public int getHeight(BstNode<E,F> x){
@@ -73,17 +70,14 @@ public class BST<E extends Comparable<E>,F>
 			System.out.print(ar[i]+" ");
 		}
 	}
- 	public BstNode<E,F> searchBst(E key)
-	{
+ 	public BstNode<E,F> searchBst(E key){
 		if(root==null)
 			return null;
-		else
-		{
+		else{
 			BstNode<E,F> trv=root;
 			BstNode<E,F> prt=root;
 			E tkey=trv.getKey();
-			while(tkey.compareTo(key)!=0&&trv!=null)
-			{
+			while(tkey.compareTo(key)!=0&&trv!=null){
 				tkey=trv.getKey();
 				prt=trv;
 				if(key.compareTo(tkey)<0)
@@ -96,8 +90,7 @@ public class BST<E extends Comparable<E>,F>
 			return prt;
 		}
 	}
- 	public void transplant(BstNode<E,F> u,BstNode<E,F> v)
-	{
+ 	public void transplant(BstNode<E,F> u,BstNode<E,F> v){
 		if(u.getP()==null)
 			root=v;
 		else if(u.getP().getL()==u)
@@ -107,27 +100,23 @@ public class BST<E extends Comparable<E>,F>
 		if(v!=null)
 			v.setP(u.getP());
 	}
-	public BstNode<E,F> getMin(BstNode<E,F> node)
-	{
+	public BstNode<E,F> getMin(BstNode<E,F> node){
 		while(node.getL()!=null)
 			node=node.getL();
 		return node;
 	}
-	public void insBst(E key,F val)
-	{
+	public void insBst(E key,F val){
 		BstNode<E,F> newNode=new BstNode<>(key,val);
 		//insert the newNode
 		if(root==null)
 			root=newNode;
-		else
-		{
+		else{
 			//first search the parent of this key
 			BstNode<E,F> trv,prt=null;
 			E tkey;
 			prt=root;
 			trv=root;
-			while(trv!=null)
-			{
+			while(trv!=null){
 				prt=trv;
 				tkey=trv.getKey();
 				if(key.compareTo(tkey)<0)
@@ -143,22 +132,18 @@ public class BST<E extends Comparable<E>,F>
 				prt.setR(newNode);
 		}
 	}
-	public BstNode<E,F> delBst(E key)
-	{
+	public BstNode<E,F> delBst(E key){
 		BstNode<E,F> target=searchBst(key);
 		//System.out.println(target.getKey());
-		if(target!=null)
-		{
+		if(target!=null){
 			BstNode<E,F> succ;
 			if(target.getL()==null)
 				transplant(target,target.getR());
 			else if(target.getR()==null)
 				transplant(target,target.getL());
-			else
-			{
+			else{
 				succ=getMin(target.getR());
-				if(succ!=target.getR())
-				{
+				if(succ!=target.getR()){
 					transplant(succ,succ.getR());
 					succ.setR(target.getR());
 					succ.getR().setP(succ);
@@ -172,39 +157,30 @@ public class BST<E extends Comparable<E>,F>
 			System.out.println("Key not found");
 		return target;
 	}
-	public void showInorder(BstNode<E,F> trv)
-	{
+	public void showInorder(BstNode<E,F> trv){
 		if(trv==null)
 			return;
 		showInorder(trv.getL());
 		System.out.println(trv.getKey()+"--->"+trv.getVal());
 		showInorder(trv.getR());
 	}
-	public void showInorderWithoutStack(BstNode<E,F> trv)
-	{
+	public void showInorderWithoutStack(BstNode<E,F> trv){
 		if(trv==null)
 			return;
 		BstNode<E,F> curr,pre;
 		curr=trv;
-		while(curr!=null)
-		{
-			if(curr.getL()==null)
-			{
+		while(curr!=null){
+			if(curr.getL()==null){
 				System.out.println(curr.getKey()+"--->"+curr.getVal());
 				curr=curr.getR();
-			}
-			else
-			{
+			}else{
 				pre=curr.getL();
 				while(pre.getR()!=null && pre.getR()!=curr)
 					pre=pre.getR();
-				if(pre.getR()==null)
-				{
+				if(pre.getR()==null){
 					pre.setR(curr);
 					curr=curr.getL();
-				}
-				else
-				{
+				}else{
 					pre.setR(null);
 					System.out.println(curr.getKey()+"--->"+curr.getVal());
 					curr=curr.getR();

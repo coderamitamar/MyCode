@@ -1,21 +1,18 @@
 package tree;
-public class BstNode<E extends Comparable<E>,F>
-{
+public class BstNode<E extends Comparable<E>,F>{
 	//Variables
 	private E key;
 	private F val;
 	private BstNode<E,F> p,l,r;
 	//Constructors
-	public BstNode()
-	{
+	public BstNode(){
 		key=null;
 		val=null;
 		p=null;
 		l=null;
 		r=null;
 	}
-	public BstNode(E key,F val)
-	{
+	public BstNode(E key,F val){
 		this.key=key;
 		this.val=val;
 		p=null;
@@ -23,44 +20,34 @@ public class BstNode<E extends Comparable<E>,F>
 		r=null;
 	}
 	//Element access methods
-	public void setP(BstNode<E,F> link)
-	{
+	public void setP(BstNode<E,F> link){
 		this.p=link;
 	}
-	public void setL(BstNode<E,F> link)
-	{
+	public void setL(BstNode<E,F> link){
 		this.l=link;
 	}
-	public void setR(BstNode<E,F> link)
-	{
+	public void setR(BstNode<E,F> link){
 		this.r=link;
 	}
-	public void setKey(E key)
-	{
+	public void setKey(E key){
 		this.key=key;
 	}
-	public void setVal(F val)
-	{
+	public void setVal(F val){
 		this.val=val;
 	}
-	public BstNode<E,F> getP()
-	{
+	public BstNode<E,F> getP(){
 		return this.p;
 	}
-	public BstNode<E,F> getL()
-	{
+	public BstNode<E,F> getL(){
 		return this.l;
 	}
-	public BstNode<E,F> getR()
-	{
+	public BstNode<E,F> getR(){
 		return this.r;
 	}
-	public E getKey()
-	{
+	public E getKey(){
 		return this.key;
 	}
-	public F getVal()
-	{
+	public F getVal(){
 		return this.val;
 	}
 }

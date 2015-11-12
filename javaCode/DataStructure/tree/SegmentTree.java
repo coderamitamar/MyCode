@@ -39,24 +39,19 @@ public class SegmentTree{
 			updateSegTreeUtil(mid+1,se,i,diff,2*index+2);
 		}
 	}
-	public void createSegTree()
-	{
+	public void createSegTree(){
 		int size=arr.length;
 		consSegTreeUtil(0,size-1,0);
 	}
-	public int getSum(int l,int r)
-	{
-		if(l<0 || r>elemSize-1 || l>r)
-		{
+	public int getSum(int l,int r){
+		if(l<0 || r>elemSize-1 || l>r){
 			System.out.println("Invalid Range");
 			return -1;
 		}
 		return getSumUtil(0,elemSize-1,l,r,0);
 	}
-	public void updateSegTree(int i,int newVal)
-	{
-		if(i<0 || i>elemSize)
-		{
+	public void updateSegTree(int i,int newVal){
+		if(i<0 || i>elemSize){
 			System.out.println("Invalid index for update");
 			return;
 		}
@@ -64,8 +59,7 @@ public class SegmentTree{
 		arr[i]=newVal;
 		updateSegTreeUtil(0,elemSize-1,i,diff,0);
 	}
-	public int getSegSize()
-	{
+	public int getSegSize(){
 		return segSize;
 	}
 }
