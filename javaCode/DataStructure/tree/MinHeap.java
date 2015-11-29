@@ -1,3 +1,4 @@
+package tree;
 public class MinHeap{
 	int harr[];
 	int capacity;
