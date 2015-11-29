@@ -1,4 +1,3 @@
-package tree;
 public class BstNode<E extends Comparable<E>,F>{
 	//Variables
 	private E key;
