@@ -1,3 +1,4 @@
+package tree;
 class TrieNode{
 	int val;
 	TrieNode children[];
