@@ -1,3 +1,4 @@
+package tree;
 class RbtNode<E extends Comparable<E>,F>{
 	private E key;
 	private F val;
