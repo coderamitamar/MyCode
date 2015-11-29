@@ -1,3 +1,4 @@
+package tree;
 class AvlNode{
 	//Defining structure on avl node
 	int key;		//to perform search
