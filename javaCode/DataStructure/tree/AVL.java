@@ -6,6 +6,7 @@ class AvlNode{
 	AvlNode left;	//reference to left child
 	AvlNode right;	//reference to right child
 	int height;		//store the height of the subtree having root as this node
+	int count;
 	//First Constructor
 	public AvlNode(int key){
 		this.key=key;
@@ -13,6 +14,7 @@ class AvlNode{
 		left=null;
 		right=null;
 		height=1;
+		count=1;
 	}
 	//Second Constructor
 	public AvlNode(int key,int val){
@@ -21,6 +23,7 @@ class AvlNode{
 		left=null;
 		right=null;
 		height=1;
+		count=1;
 	}
 }
 public class AVL {
@@ -69,10 +72,14 @@ public class AVL {
 	private AvlNode insertUtil(AvlNode node,int key,int val){
 		if(node==null)
 			return new AvlNode(key,val);
-		if(key<node.key)
+		if(key==node.key){
+			node.count++;
+			return node;
+		}else if(key<node.key){
 			node.left=insertUtil(node.left,key,val);
-		else
+		}else{
 			node.right=insertUtil(node.right,key,val);
+		}
 		node.height=Math.max(height(node.left), height(node.right))+1;
 		int balance=getBalance(node);
 		//left left case
@@ -102,6 +109,10 @@ public class AVL {
 		else if(key>node.key)
 			node.right=deleteUtil(node.right,key);
 		else{//if key is at this node
+			if(node.count>1){
+				node.count--;
+				return node;
+			}
 			if(node.left==null || node.right==null){
 				//if one or no child is there for this node
 				AvlNode temp=(node.left!=null)?node.left:node.right;
@@ -161,23 +172,24 @@ public class AVL {
 	public void printInOrder(AvlNode x){
 		if(x==null)	return;
 		printInOrder(x.left);
-		System.out.print(x.key+" ");
+		System.out.print(x.key+"("+x.count+") ");
 		printInOrder(x.right);
 	}
 	public static void main(String[] args){
 		AVL avl=new AVL();
 		avl.insert(2, 5);
 		avl.insert(3, 5);
-		avl.insert(1, 5);
+		avl.insert(3, 5);
 		avl.insert(7, 5);
 		avl.insert(10, 5);
 		avl.insert(5, 5);
-		avl.insert(8, 5);
+		avl.insert(7, 5);
 		avl.insert(6, 5);
 		avl.insert(9, 5);
 		System.out.print(avl.height(avl.root)+"\n");
 		avl.printInOrder(avl.root);
 		avl.delete(6);
+		avl.delete(3);
 		avl.delete(2);
 		avl.delete(7);
 		avl.delete(7);
